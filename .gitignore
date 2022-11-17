@@ -1,0 +1,13 @@
+.bash_history
+.python_history
+.cache/*
+.DS_Store
+.wget-hsts
+.ipynb_checkpoints/*
+.ipython/*
+.jupyter/*
+.local/*
+
+img/*
+
+src/.ipynb_checkpoints/*

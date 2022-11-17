@@ -1,0 +1,14 @@
+version: '3'
+services:
+  python3:
+    restart: always
+    build: .
+    container_name: 'python3'
+    command:
+      jupyter-lab --ip 0.0.0.0 --allow-root --no-browser -b localhost
+    ports:
+      - "8111:8888"
+    working_dir: '/root'
+    tty: true
+    volumes:
+      - .:/root

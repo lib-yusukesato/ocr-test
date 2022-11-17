@@ -1,0 +1,28 @@
+プライベートリポジトリ作成
+https://github.com/lib-yusukesato/ocr-test
+
+環境構築
+Dockerfile、docker-compose.ymlの作成
+参考
+https://zuma-lab.com/posts/docker-python-settings
+https://qiita.com/penpenta/items/54b6af3edfc9387d575f
+
+pyocr
+https://pypi.org/project/pyocr/
+tesseract documentation
+https://tesseract-ocr.github.io/
+
+日本語対応させる
+pyocr.error.TesseractError: (1, b'Error opening data file /usr/share/tesseract-ocr/4.00/tessdata/jpn.traineddata\nPlease make sure the TESSDATA_PREFIX environment variable is set to your "tessdata" directory.\nFailed loading language \'jpn\'\nTesseract couldn\'t load any languages!\nCould not initialize tesseract.\n')
+https://qiita.com/tifa2chan/items/d2ae546804b1ce2e7277
+
+wgetはrowデータを取得してこないといけない。
+https://github.com/tesseract-ocr/tesseract/issues/1309
+
+縦読みモデル
+https://github.com/tesseract-ocr/tessdata/blob/main/jpn_vert.traineddata
+https://github.com/tesseract-ocr/tessdata_best/blob/main/jpn_vert.traineddata
+https://github.com/tesseract-ocr/tessdata_fast/blob/main/jpn_vert.traineddata
+
+jupyter環境構築
+https://makungoron-music.hatenablog.com/entry/docker-jupyter
