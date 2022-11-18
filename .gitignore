@@ -9,5 +9,8 @@
 .local/*
 
 img/*
+!img/.gitkeep
+results/*
+!results/.gitkeep
 
 src/.ipynb_checkpoints/*
