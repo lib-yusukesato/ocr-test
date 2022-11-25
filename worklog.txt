@@ -1,0 +1,56 @@
+プライベートリポジトリ作成
+https://github.com/lib-yusukesato/ocr-test
+
+環境構築
+Dockerfile、docker-compose.ymlの作成
+参考
+https://zuma-lab.com/posts/docker-python-settings
+https://qiita.com/penpenta/items/54b6af3edfc9387d575f
+
+pyocr
+https://pypi.org/project/pyocr/
+tesseract documentation
+https://tesseract-ocr.github.io/
+
+日本語対応させる
+pyocr.error.TesseractError: (1, b'Error opening data file /usr/share/tesseract-ocr/4.00/tessdata/jpn.traineddata\nPlease make sure the TESSDATA_PREFIX environment variable is set to your "tessdata" directory.\nFailed loading language \'jpn\'\nTesseract couldn\'t load any languages!\nCould not initialize tesseract.\n')
+https://qiita.com/tifa2chan/items/d2ae546804b1ce2e7277
+
+wgetはrowデータを取得してこないといけない。
+https://github.com/tesseract-ocr/tesseract/issues/1309
+
+縦読みモデル
+https://github.com/tesseract-ocr/tessdata/blob/main/jpn_vert.traineddata
+https://github.com/tesseract-ocr/tessdata_best/blob/main/jpn_vert.traineddata
+https://github.com/tesseract-ocr/tessdata_fast/blob/main/jpn_vert.traineddata
+
+jupyter環境構築
+https://makungoron-music.hatenablog.com/entry/docker-jupyter
+
+OCR処理の実行
+https://blog.machine-powers.net/2018/08/04/pyocr-and-tips/
+builderオプション
+TextBuilder : テキスト全体
+WordBoxBuilder : 単語単位（画像内の位置座標付き）
+LineBoxBuilder : 行単位（画像内の位置座標付き）
+DigitBuilder : 数字のみ
+DigitLineBoxBuilder :
+
+その他ライブラリについて
+https://kumappp.hatenablog.com/entry/2020/01/17/182153
+
+前処理について
+リサイズ
+https://tech-blog.optim.co.jp/entry/2021/02/24/100000
+平滑化
+https://qiita.com/Gyutan/items/651362da90c2818a8ccb
+
+画像取り込み手順
+①iPhoneで撮影
+②HEICファイルからjpeg・pngに変換(prefix: ori_)
+③リサイズ（prefix: resize_)
+④平滑化（prefix: blur_)
+
+
+11/25 以降
+プリンターからスキャンした画像をトリミングして文字認識させる。
