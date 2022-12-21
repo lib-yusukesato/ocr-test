@@ -10,6 +10,10 @@
 
 img/*
 !img/.gitkeep
+pdf2img/*
+!pdf2img/.gitkeep
+pdf/*
+!pdf/.gitkeep
 results/*
 !results/.gitkeep
 
