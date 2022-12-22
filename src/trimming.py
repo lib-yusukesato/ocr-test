@@ -41,4 +41,4 @@ for i, image_name in enumerate(image_names):
 
     cv2.imwrite(resultPath + "/license_number_" + str(i) + '.png', license_number)
     cv2.imwrite(resultPath + "/name_" + str(i) + '.png', name)
-    cv2.imwrite(resultPath + "/address_underline_" + str(i) + '.png', address)
+    cv2.imwrite(resultPath + "/address" + str(i) + '.png', address)
