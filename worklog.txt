@@ -54,3 +54,15 @@ https://qiita.com/Gyutan/items/651362da90c2818a8ccb
 
 11/25 以降
 プリンターからスキャンした画像をトリミングして文字認識させる。
+
+pythonでpdfから画像ファイルに変換するライブラリ
+
+①pypdf2:
+pdfの分割統合、画像化などができる、画像抽出できるなどpdfの扱いやすさの点で選択
+githubスター: 4988
+https://pypdf2.readthedocs.io/en/latest/
+
+②pdf2img
+変換のみ（たぶん）
+githubスター: 1143
+https://github.com/Belval/pdf2image
