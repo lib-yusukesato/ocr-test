@@ -8,9 +8,9 @@ import re
 import sys
 
 # imgディレクトリパス
-imgPath = '../img'
+imgPath = '../trim_img'
 # 結果格納パス
-resultPath = '../results'
+resultPath = '../trim_results'
 
 # テスト画像の準備
 # 画像ファイル取得

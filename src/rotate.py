@@ -15,12 +15,8 @@ fileExtension = '.+\.(jpg|jpeg|png|HEIC)'
 pattern = re.compile(fileExtension)
 
 # 左に90度回転している画像を設定
+# 必要に応じて追加
 image_names = [
-    '3_20221130212135002.png',
-    '4_20221130212135002.png',
-    '5_20221130212135002.png',
-    '6_20221130212135002.png',
-    '7_20221130212135002.png',
 ]
 
 for image_name in image_names:
@@ -28,4 +24,3 @@ for image_name in image_names:
 
     img_rotate_90_clockwise = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
     cv2.imwrite(resultPath + '/' + image_name, img_rotate_90_clockwise)
-

@@ -24,17 +24,20 @@ for item in os.listdir(pdfPath):
     if result:
         pdfs.append(pdfPath + '/' + item)
 
+count = 0
 for pdf in pdfs:
     reader = PdfReader(pdf)
-    count = 0
 
     for page in reader.pages:
         for image_file_object in page.images:
             with open('tmp.tiff', "wb") as fp:
                 fp.write(image_file_object.data)
 
-            path = resultPath + '/' + str(count) + '_' + os.path.splitext(os.path.basename(pdf))[0] + '.png'
             img = cv2.imread(tmpFile)
+
+            # ファイル名
+            # {0-9}_{heigth}x{width}.png
+            path = resultPath + '/' + str(count) + '_' + str(img.shape[0]) + 'x' + str(img.shape[1]) + '.png'
             cv2.imwrite(path, img)
             count += 1
 

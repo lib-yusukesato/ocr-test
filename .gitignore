@@ -16,5 +16,9 @@ pdf/*
 !pdf/.gitkeep
 results/*
 !results/.gitkeep
+trim_img/*
+!trim_img/.gitkeep
+trim_results/*
+!trim_results/.gitkeep
 
 src/.ipynb_checkpoints/*
