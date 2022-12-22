@@ -1,16 +1,15 @@
 import pyocr
 import pyocr.builders
 
-import cv2
 from PIL import Image
 import os
 import re
 import sys
 
 # imgディレクトリパス
-imgPath = '../img'
+imgPath = '../trim_img'
 # 結果格納パス
-resultPath = '../results'
+resultPath = '../trim_results'
 
 # テスト画像の準備
 # 画像ファイル取得
@@ -45,20 +44,19 @@ print("Will use lang '%s'" % (lang))
 
 for image in images:
     print("execute: '%s'" % (image))
-    res = tool.image_to_string(Image.open(image),
-                                lang="best_jpn",
-                                builder=pyocr.builders.TextBuilder(tesseract_layout=6))
+
+    # 免許証番号のみdigitモードで読み込み
+    if ('licdnse' in image):
+        res = tool.image_to_string(Image.open(image),
+                                    lang="best_jpn",
+                                    builder=pyocr.builders.DigitBuilder(tesseract_layout=6))
+    else:
+        res = tool.image_to_string(Image.open(image),
+                                    lang="best_jpn",
+                                    builder=pyocr.builders.TextBuilder(tesseract_layout=6))
 
     # 結果をファイルに書き込み
     wroteFile = resultPath + "/" + os.path.splitext(os.path.basename(image))[0] + '.txt'
     f = open(wroteFile, 'w')
     f.writelines(res)
     f.close()
-
-
-# out = cv2.imread(images[0])
-# for d in res:
-#     print(d.content)
-#     print(d.position)
-#     cv2.rectangle(out_resize, d.position[0], d.position[1], (0, 0, 255), 2)
-

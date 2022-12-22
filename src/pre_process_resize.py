@@ -2,7 +2,6 @@ import cv2
 from PIL import Image
 import os
 import re
-import sys
 
 # imgディレクトリパス
 imgPath = '../img'
