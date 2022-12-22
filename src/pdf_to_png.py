@@ -1,5 +1,4 @@
 import cv2
-from PIL import Image
 from PyPDF2 import PdfReader
 import os
 import re
@@ -30,7 +29,7 @@ for pdf in pdfs:
 
     for page in reader.pages:
         for image_file_object in page.images:
-            with open('tmp.tiff', "wb") as fp:
+            with open(tmpFile, "wb") as fp:
                 fp.write(image_file_object.data)
 
             img = cv2.imread(tmpFile)

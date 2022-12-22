@@ -1,8 +1,6 @@
 import cv2
-from PIL import Image
 import os
 import re
-import sys
 
 # imgディレクトリパス
 imgPath = '../pdf2img'
@@ -33,7 +31,6 @@ for i, image_name in enumerate(image_names):
         name = img[25 : 55, width - 600: width - 260]
         address = img[90 : 117, width - 600: width - 80]
     else:
-        print(i)
         # img[top : bottom, left : right]
         license_number = img[850 : 950, width - 1700: width - 950]
         name = img[70 : 160, width - 1800: width - 780]
@@ -41,4 +38,4 @@ for i, image_name in enumerate(image_names):
 
     cv2.imwrite(resultPath + "/license_number_" + str(i) + '.png', license_number)
     cv2.imwrite(resultPath + "/name_" + str(i) + '.png', name)
-    cv2.imwrite(resultPath + "/address" + str(i) + '.png', address)
+    cv2.imwrite(resultPath + "/address_" + str(i) + '.png', address)
